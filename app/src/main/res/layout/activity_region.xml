@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:theme="@style/EditTheme">
+
+    <TextView
+        android:id="@+id/select_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="지역선택"
+        android:textColor="#000000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/dosi"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_below="@+id/select_region"
+        android:layout_alignRight="@+id/select_region"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="도"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+
+    <Spinner
+        android:id="@+id/dosi_edit"
+        android:layout_width="200dp"
+        android:layout_height="26dp"
+        android:layout_below="@+id/select_region"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/dosi">
+    </Spinner>
+
+    <TextView
+        android:id="@+id/sigungu"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_below="@+id/dosi"
+        android:layout_alignRight="@+id/select_region"
+        android:layout_marginTop="40dp"
+        android:text="시군구"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/sigungu_edit"
+        android:layout_width="200dp"
+        android:layout_height="26dp"
+        android:layout_below="@+id/dosi_edit"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/dosi"
+        android:textColor="#000000">
+    </Spinner>
+
+    <TextView
+        android:id="@+id/dong"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_below="@+id/sigungu"
+        android:layout_alignRight="@+id/select_region"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="읍면동"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+
+    <Spinner
+        android:id="@+id/umd_edit"
+        android:layout_width="200dp"
+        android:layout_height="26dp"
+        android:layout_below="@+id/sigungu_edit"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/dosi"
+        android:textColor="#000000">
+    </Spinner>
+
+
+    <Button
+        android:id="@+id/region_check"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="확인"
+        android:textSize="20dp"
+        android:layout_marginBottom="50dp"
+        android:theme="@style/Button_dk"/>
+
+</RelativeLayout>

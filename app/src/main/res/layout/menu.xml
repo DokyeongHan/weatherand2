@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="설정"
+        android:textColor="#000000"
+        android:textSize="30dp" />
+
+
+    <Button
+        android:id="@+id/zi"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/setting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="지역선택"
+        android:textSize="20dp"
+        android:theme="@style/Button_dk"/>
+
+
+    <Button
+        android:id="@+id/sh"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/zi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="생활항목"
+        android:textSize="20dp"
+        android:theme="@style/Button_dk"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:text="본 자료는 기상청과 한국환경공단에서 제공하는 관측 자료이며
+        실제 수치와 다를수 있습니다."
+        android:textColor="#000000"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>
