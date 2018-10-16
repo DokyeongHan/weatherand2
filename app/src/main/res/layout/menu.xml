@@ -37,6 +37,17 @@
         android:textSize="20dp"
         android:theme="@style/Button_dk"/>
 
+    <Button
+        android:id="@+id/sn"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/sh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="상세날씨"
+        android:textSize="20dp"
+        android:theme="@style/Button_dk"/>
+
 
     <ImageView
         android:layout_width="wrap_content"
