@@ -5,17 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends FragmentActivity {
@@ -27,6 +26,25 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView r_text = findViewById(R.id.region_text);
+        try {
+            FileInputStream inFs = openFileInput("file.txt");
+            byte[] txt = new byte[50];
+            inFs.read(txt);
+            String str = new String(txt);
+            r_text.setText(str);
+            inFs.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if(r_text==null){
+            Intent intent = new Intent(getApplicationContext(), region.class);
+            startActivity(intent);
+        } else{
+
+        }
 
         adapter = new MyPagerAdapter(getSupportFragmentManager());
 
@@ -73,8 +91,6 @@ public class MainActivity extends FragmentActivity {
             String str = new String(txt);
             r_text.setText(str);
             inFs.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
