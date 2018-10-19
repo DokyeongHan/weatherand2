@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
@@ -27,25 +28,6 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView r_text = findViewById(R.id.region_text);
-        try {
-            FileInputStream inFs = openFileInput("file.txt");
-            byte[] txt = new byte[50];
-            inFs.read(txt);
-            String str = new String(txt);
-            r_text.setText(str);
-            inFs.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if(r_text==null){
-            Intent intent = new Intent(getApplicationContext(), region.class);
-            startActivity(intent);
-        } else{
-
-        }
-
         adapter = new MyPagerAdapter(getSupportFragmentManager());
 
         pager = findViewById(R.id.pager);
@@ -55,8 +37,15 @@ public class MainActivity extends FragmentActivity {
         indicator.setViewPager(pager);
 
 
-        TextView nowd = findViewById(R.id.nowday);
-        nowd.setText(doYearMonthDay());
+        LinearLayout sbtnlayout = findViewById(R.id.sbtnlayout);
+        sbtnlayout.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), region.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
         Button sbtn = findViewById(R.id.sbtn);
         sbtn.setOnClickListener(
