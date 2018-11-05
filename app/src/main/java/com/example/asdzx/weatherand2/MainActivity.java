@@ -2,6 +2,7 @@ package com.example.asdzx.weatherand2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -36,6 +37,10 @@ public class MainActivity extends FragmentActivity {
         CircleIndicator indicator = findViewById(R.id.indicator);
         indicator.setViewPager(pager);
 
+        /* 지역선택부분에 밑줄
+        TextView r_text = findViewById(R.id.region_text);
+        r_text.setPaintFlags(r_text.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        */
 
         LinearLayout sbtnlayout = findViewById(R.id.sbtnlayout);
         sbtnlayout.setOnClickListener(
@@ -73,6 +78,7 @@ public class MainActivity extends FragmentActivity {
         super.onResume();
 
         TextView r_text = findViewById(R.id.region_text);
+
         try {
             FileInputStream inFs = openFileInput("file.txt");
             byte[] txt = new byte[50];
@@ -86,11 +92,10 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    public String doYearMonthDay() {
+    public static String doYearMonthDay() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA);
         Date date = new Date();
         String currentDate = formatter.format(date);
         return currentDate;
     }
 }
-
