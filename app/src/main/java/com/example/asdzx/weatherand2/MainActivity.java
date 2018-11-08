@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -23,6 +24,7 @@ public class MainActivity extends FragmentActivity {
     MyPagerAdapter adapter;
     ViewPager pager;
     Context context = this;
+    String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class MainActivity extends FragmentActivity {
                 }
         );
     }
+
 
     @Override
     public void onResume() {

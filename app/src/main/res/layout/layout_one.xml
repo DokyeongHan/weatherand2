@@ -15,10 +15,16 @@
         android:background="@drawable/rounded">
 
         <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/nari" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/man" />
+            android:id="@+id/result"/>
 
     </RelativeLayout>
 
