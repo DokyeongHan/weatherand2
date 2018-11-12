@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/result"
                 android:layout_centerInParent="true"
-                android:text="체감온도"
+                android:text="미세먼지"
                 android:textColor="#000000"
                 android:textSize="50dp" />
 
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="17"
+                android:text="조회중"
                 android:textColor="#000000"
                 android:textSize="20dp" />
         </RelativeLayout>

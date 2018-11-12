@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -52,7 +53,11 @@ public class MainActivity extends FragmentActivity {
 
         //날씨 정보 객체와 파서객체 생성
         weather = new weather();
-        parstring = new parstring();
+        try {
+            parstring = new parstring();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
 
         //findViewbyId
         text = findViewById(R.id.region_text);
@@ -121,7 +126,7 @@ public class MainActivity extends FragmentActivity {
         api.execute();
 
         //화면 새로고침시 지역글씨 바꿔줌
-        TextView r_text = findViewById(R.id.region_text);
+        /* TextView r_text = findViewById(R.id.region_text);
         try {
             FileInputStream inFs = openFileInput("file.txt");
             byte[] txt = new byte[50];
@@ -131,6 +136,6 @@ public class MainActivity extends FragmentActivity {
             inFs.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
