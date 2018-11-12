@@ -8,8 +8,8 @@ public class weather {
         this.pm10 = pm10;
     }
 
-    public int getPm10() {
-        return pm10;
+    public String  getPm10() {
+        return String.valueOf(pm10);
     }
 
     public void setPm25(int pm25) {

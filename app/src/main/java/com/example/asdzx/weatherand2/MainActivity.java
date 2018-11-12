@@ -42,33 +42,40 @@ public class MainActivity extends FragmentActivity {
     LayoutOne frag;
     FragmentManager manager;
     ViewPager viewPager;
-    static weather a;
-    static String result = "";
-    String line;
-    static parstring b;
+    static weather weather;
+    static parstring parstring;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        a = new weather();
-        b = new parstring();
 
+        //날씨 정보 객체와 파서객체 생성
+        weather = new weather();
+        parstring = new parstring();
+
+        //findViewbyId
         text = findViewById(R.id.region_text);
+        LinearLayout sbtnlayout = findViewById(R.id.sbtnlayout);
+        Button sbtn = findViewById(R.id.sbtn);
+        Button mbtn = findViewById(R.id.refresh);
 
+        //viewpager 설정
         adapter = new MyPagerAdapter(getSupportFragmentManager());
         pager = findViewById(R.id.pager);
         pager.setAdapter(adapter);
 
+        //indicator 설정
         CircleIndicator indicator = findViewById(R.id.indicator);
         indicator.setViewPager(pager);
+
 
         /* 지역선택부분에 밑줄
         TextView r_text = findViewById(R.id.region_text);
         r_text.setPaintFlags(r_text.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         */
 
-        LinearLayout sbtnlayout = findViewById(R.id.sbtnlayout);
+        //지역선택(글씨 클릭시)
         sbtnlayout.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -78,7 +85,7 @@ public class MainActivity extends FragmentActivity {
                 }
         );
 
-        Button sbtn = findViewById(R.id.sbtn);
+        //지역선택(아이콘 클릭시)
         sbtn.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -87,13 +94,12 @@ public class MainActivity extends FragmentActivity {
                     }
                 }
         );
-        APItask api = new APItask();
-        api.execute();
-        Button mbtn = findViewById(R.id.refresh);
+
+        //새로고침(아이콘 클릭시)
         mbtn.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        APItask api = new APItask();
+                        AsyncTask1 api = new AsyncTask1();
                         api.execute();
                         //Intent intent = new Intent(getApplicationContext(), menu.class);
                         //startActivity(intent);
@@ -101,14 +107,21 @@ public class MainActivity extends FragmentActivity {
                 }
         );
 
+        //비동기 작업 실행
+        AsyncTask1 api = new AsyncTask1();
+        api.execute();
     }
 
 
     @Override
     public void onResume() {
         super.onResume();
-        TextView r_text = findViewById(R.id.region_text);
+        //비동기 작업 실행
+        AsyncTask1 api = new AsyncTask1();
+        api.execute();
 
+        //화면 새로고침시 지역글씨 바꿔줌
+        TextView r_text = findViewById(R.id.region_text);
         try {
             FileInputStream inFs = openFileInput("file.txt");
             byte[] txt = new byte[50];
@@ -118,60 +131,6 @@ public class MainActivity extends FragmentActivity {
             inFs.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-
-    public static String doYearMonthDay() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA);
-        Date date = new Date();
-        String currentDate = formatter.format(date);
-        return currentDate;
-    }
-
-
-
-    public class APItask extends AsyncTask<Integer, Integer, Void> {
-        @Override
-        protected Void doInBackground(Integer... integers) {
-            BufferedReader br = null;
-            try {
-                String urlstr = "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?" +
-                        "stationName=석사동&" +
-                        "dataTerm=month&" +
-                        "pageNo=1&" +
-                        "numOfRows=1&" +
-                        "ServiceKey=PExw%2FhWxDuRH5PLh2T7Z0gRK0KPerENji1Yskvtp4ApbzepFsKLRH%2FZnI17I6dRfs0Obd6DBevxgbonv%2BUdq9g%3D%3D&" +
-                        "ver=1.3";
-
-                URL url = new URL(urlstr);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("GET");
-                br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-                result = "";
-                while ((line = br.readLine()) != null) {
-                    result = result + line + "\n";
-                }
-                b.setMise(result);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
         }
     }
 }

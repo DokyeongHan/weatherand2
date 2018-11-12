@@ -1,25 +1,24 @@
 package com.example.asdzx.weatherand2;
-
-import static com.example.asdzx.weatherand2.MainActivity.a;
+import static com.example.asdzx.weatherand2.MainActivity.weather;
 
 public class parstring {
-    String mise = "";
-    String shortterm = "";
-    String longterm = "";
+    String miseString = "";
+    String shorttermString = "";
+    String longtermString = "";
 
-    public void setMise(String mise) {
-        this.mise = mise;
+    public void setMiseString(String mise) {
+        this.miseString = mise;
     }
 
-    public void setLongterm(String longterm) {
-        this.longterm = longterm;
+    public void setLongtermString(String longterm) {
+        this.longtermString = longterm;
     }
 
-    public void setShortterm(String shortterm) {
-        this.shortterm = shortterm;
+    public void setShorttermString(String shortterm) {
+        this.shorttermString = shortterm;
     }
 
-    public void aa(){
-        a.setPm10(10);
+    public void setweather() {
+        weather.setPm10(10);
     }
 }
