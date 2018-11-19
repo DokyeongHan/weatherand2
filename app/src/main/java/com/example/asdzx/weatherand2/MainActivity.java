@@ -126,7 +126,7 @@ public class MainActivity extends FragmentActivity {
         api.execute();
 
         //화면 새로고침시 지역글씨 바꿔줌
-        /* TextView r_text = findViewById(R.id.region_text);
+         TextView r_text = findViewById(R.id.region_text);
         try {
             FileInputStream inFs = openFileInput("file.txt");
             byte[] txt = new byte[50];
@@ -136,6 +136,6 @@ public class MainActivity extends FragmentActivity {
             inFs.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }

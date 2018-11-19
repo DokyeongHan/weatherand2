@@ -6,6 +6,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -19,9 +20,6 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
 
     @Override
     protected Void doInBackground(Integer... integers) {
-        nowtime = doYearMonthDay();
-        nowday = doTime();
-
         //파싱
         try {
             parstring.miseparsing();
@@ -31,6 +29,9 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
             e.printStackTrace();
         }
 
+        parstring.chodanparsing();
+        parstring.dongnae2parsing();
+        parstring.dongnae5parsing();
         return null;
     }
 
@@ -51,7 +52,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
 
     //오늘 날짜 가져오기 (api 변수에 사용합니다.)
     public static String doYearMonthDay() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyMMdd", Locale.KOREA);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Date date = new Date();
         String currentDate = formatter.format(date);
         return currentDate;
@@ -63,5 +64,53 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
         Date date = new Date();
         String currentDate = formatter.format(date);
         return currentDate;
+    }
+
+    public static String doyes(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -1);  // 오늘 날짜에서 하루를 뺌.
+        String date = formatter.format(calendar.getTime());
+        return date;
+    }
+
+    public static String today_1(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, +1);  // 오늘 날짜에서 하루를 뺌.
+        String date = formatter.format(calendar.getTime());
+        return date;
+    }
+
+    public static String today_2(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, +2);  // 오늘 날짜에서 하루를 뺌.
+        String date = formatter.format(calendar.getTime());
+        return date;
+    }
+
+    public static String today_3(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, +3);  // 오늘 날짜에서 하루를 뺌.
+        String date = formatter.format(calendar.getTime());
+        return date;
+    }
+
+    public static String today_4(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, +4);  // 오늘 날짜에서 하루를 뺌.
+        String date = formatter.format(calendar.getTime());
+        return date;
+    }
+
+    public static String today_5(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, +5);  // 오늘 날짜에서 하루를 뺌.
+        String date = formatter.format(calendar.getTime());
+        return date;
     }
 }

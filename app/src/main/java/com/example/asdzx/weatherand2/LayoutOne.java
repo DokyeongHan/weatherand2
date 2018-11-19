@@ -11,38 +11,39 @@ import android.widget.TextView;
 import static com.example.asdzx.weatherand2.MainActivity.parstring;
 import static com.example.asdzx.weatherand2.MainActivity.weather;
 
-public class LayoutOne extends Fragment {
-    TextView text;
+        public class LayoutOne extends Fragment {
+            TextView text;
 
-    public static LayoutOne newInstance() {
-        LayoutOne fragment = new LayoutOne();
-        return fragment;
-    }
+            public static LayoutOne newInstance() {
+                LayoutOne fragment = new LayoutOne();
+                return fragment;
+            }
 
-    public LayoutOne() {
-    }
+            public LayoutOne() {
+            }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.layout_one, null);
-        text = root.findViewById(R.id.result);
+            @Override
+            public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+                View root = inflater.inflate(R.layout.layout_one, null);
+                text = root.findViewById(R.id.result);
 
-        APItask api = new APItask();
-        api.execute();
+                APItask api = new APItask();
+                api.execute();
 
-        return root;
-    }
+                return root;
+            }
 
-    public class APItask extends AsyncTask<Integer, Integer, Void> {
-        @Override
-        protected Void doInBackground(Integer... integers) {
-            return null;
-        }
+            public class APItask extends AsyncTask<Integer, Integer, Void> {
+                @Override
+                protected Void doInBackground(Integer... integers) {
+                    return null;
+                }
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            text.setText(weather.getPm10());
-            super.onPostExecute(aVoid);
-        }
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    text.setText(weather.REH_2);
+                    //text.setText(AsyncTask1.doyes());
+                    super.onPostExecute(aVoid);
+                }
     }
 }
