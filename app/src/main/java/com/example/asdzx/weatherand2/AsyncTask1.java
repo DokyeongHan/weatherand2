@@ -32,6 +32,10 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
         parstring.chodanparsing();
         parstring.dongnae2parsing();
         parstring.dongnae5parsing();
+        parstring.haedal();
+        parstring.midterm();
+
+
         return null;
     }
 
@@ -77,7 +81,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     public static String today_1(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, +1);  // 오늘 날짜에서 하루를 뺌.
+        calendar.add(Calendar.DATE, +1);  // 내일.
         String date = formatter.format(calendar.getTime());
         return date;
     }
@@ -85,7 +89,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     public static String today_2(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, +2);  // 오늘 날짜에서 하루를 뺌.
+        calendar.add(Calendar.DATE, +2);  //
         String date = formatter.format(calendar.getTime());
         return date;
     }
@@ -93,7 +97,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     public static String today_3(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, +3);  // 오늘 날짜에서 하루를 뺌.
+        calendar.add(Calendar.DATE, +3);
         String date = formatter.format(calendar.getTime());
         return date;
     }
@@ -101,7 +105,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     public static String today_4(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, +4);  // 오늘 날짜에서 하루를 뺌.
+        calendar.add(Calendar.DATE, +4);
         String date = formatter.format(calendar.getTime());
         return date;
     }
@@ -109,7 +113,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     public static String today_5(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, +5);  // 오늘 날짜에서 하루를 뺌.
+        calendar.add(Calendar.DATE, +5);
         String date = formatter.format(calendar.getTime());
         return date;
     }

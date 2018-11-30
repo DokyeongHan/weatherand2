@@ -55,6 +55,13 @@ public class weather {
     String SKY0_4 = null;
     String SKY0_5 = null;
 
+    //오늘 강수 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
+    String PTY_1 = null;
+    String PTY_2 = null;
+    String PTY_3 = null;
+    String PTY_4 = null;
+    String PTY_5 = null;
+
     //오늘 온도 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
     String T3H_1 = null;
     String T3H_2 = null;
@@ -83,6 +90,13 @@ public class weather {
     String SKY1_4 = null;
     String SKY1_5 = null;
 
+    //오늘 강수 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
+    String T_PTY_1 = null;
+    String T_PTY_2 = null;
+    String T_PTY_3 = null;
+    String T_PTY_4 = null;
+    String T_PTY_5 = null;
+
     //내일 온도 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
     String T_T3H_1 = null;
     String T_T3H_2 = null;
@@ -104,20 +118,30 @@ public class weather {
     String T_WSD_4 = null;
     String T_WSD_5 = null;
 
+    //일출 일중 일몰 월출 월중 월몰
+    String sunrise = null;
+    String suntransit = null;
+    String sunset = null;
+    String moonrise = null;
+    String moontransit = null;
+    String moonset = null;
+    String civilm = null; // 시민박명(아침)
+    String civile = null; // 시민박명(저녁)
+    String nautm = null; // 항해박명(아침)
+    String naute = null; //항해박명(저녁)
+    String astm = null; //천문박명(아침)
+    String aste = null; //천문박명(저녁)
+
+
+
+
+
     public void setPm10(String pm10) {
         this.pm10 = pm10;
     }
 
     public void setPm25(String pm25) {
         this.pm25 = pm25;
-    }
-
-    public String getPm10() {
-        return pm10;
-    }
-
-    public String getPm25() {
-        return pm25;
     }
 
     public void setPTY(String PTY) {
@@ -138,25 +162,5 @@ public class weather {
 
     public void setWDF(String WDF) {
         this.WDF = WDF;
-    }
-
-    public String getPTY() {
-        return PTY;
-    }
-
-    public String getREH() {
-        return REH;
-    }
-
-    public String getT1H() {
-        return T1H;
-    }
-
-    public String getVEC() {
-        return VEC;
-    }
-
-    public String getWDF() {
-        return WDF;
     }
 }
