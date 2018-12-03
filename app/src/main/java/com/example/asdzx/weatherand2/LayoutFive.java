@@ -10,20 +10,20 @@ import android.widget.TextView;
 
 import static com.example.asdzx.weatherand2.MainActivity.weather;
 
-public class LayoutFour extends Fragment {
+public class LayoutFive extends Fragment {
     TextView text;
 
-    public static LayoutFour newInstance() {
-        LayoutFour fragment = new LayoutFour();
+    public static LayoutFive newInstance() {
+        LayoutFive fragment = new LayoutFive();
         return fragment;
     }
 
-    public LayoutFour() {
+    public LayoutFive() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.layout_four, null);
+        View root = inflater.inflate(R.layout.layout_five, null);
         text = root.findViewById(R.id.result);
 
         APItask api = new APItask();
