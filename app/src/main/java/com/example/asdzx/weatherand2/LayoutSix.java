@@ -10,21 +10,23 @@ import android.widget.TextView;
 
 import static com.example.asdzx.weatherand2.MainActivity.weather;
 
-public class LayoutFour extends Fragment {
+public class LayoutSix extends Fragment {
     TextView text;
+    TextView content;
 
-    public static LayoutFour newInstance() {
-        LayoutFour fragment = new LayoutFour();
+    public static LayoutSix newInstance() {
+        LayoutSix fragment = new LayoutSix();
         return fragment;
     }
 
-    public LayoutFour() {
+    public LayoutSix() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.layout_four, null);
+        View root = inflater.inflate(R.layout.layout_six, null);
         text = root.findViewById(R.id.result);
+        content = root.findViewById(R.id.content);
 
         APItask api = new APItask();
         api.execute();
@@ -40,33 +42,17 @@ public class LayoutFour extends Fragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            String aste1 = weather.aste;
+            String sky = weather.SKY0_5;
+            String result1;
+
+            if (sky.contains("맑음")) {
+                result1 = "오늘은 별보기 좋은 날";
+                content.setText(result1);
+            }
 
 
-            String undong;
-            int pty = Integer.parseInt(weather.PTY);
-
-            int result = 0;
-
-            String ps10 = weather.pm10;
-            int p10 = Integer.parseInt(ps10.trim());
-
-            if (p10 < 30)
-                result += 50;
-            else if (30 <= p10 && p10 <= 50)
-                result += 40;
-            else if (p10 > 50 && p10 <= 75)
-                result += 30;
-            else if (p10 > 75)
-                result += 10;
-
-            if(pty == 0)
-                result += 50;
-            else if(pty > 0)
-                result -= 10;
-
-            undong = Integer.toString(result);
-
-            text.setText(undong);
+            text.setText(aste1);
             super.onPostExecute(aVoid);
         }
     }

@@ -13,8 +13,6 @@ public class weather {
     String VEC = null; //현재 풍향
 
     //일주일 날씨 (해,구름 등) - 중기예보, 동네예보- 1200
-    String SKY1 = null;
-    String SKY2 = null;
     String SKY3 = null;
     String SKY4 = null;
     String SKY5 = null;
@@ -90,7 +88,7 @@ public class weather {
     String SKY1_4 = null;
     String SKY1_5 = null;
 
-    //오늘 강수 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
+    //내일 강수 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
     String T_PTY_1 = null;
     String T_PTY_2 = null;
     String T_PTY_3 = null;
@@ -117,6 +115,20 @@ public class weather {
     String T_WSD_3 = null;
     String T_WSD_4 = null;
     String T_WSD_5 = null;
+
+    //모레 날씨 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
+    String SKY2_1 = null;
+    String SKY2_2 = null;
+    String SKY2_3 = null;
+    String SKY2_4 = null;
+    String SKY2_5 = null;
+
+    //모레 강수 (새벽, 아침, 점심, 저녁, 밤) - 동네예보
+    String F_PTY_1 = null;
+    String F_PTY_2 = null;
+    String F_PTY_3 = null;
+    String F_PTY_4 = null;
+    String F_PTY_5 = null;
 
     //일출 일중 일몰 월출 월중 월몰
     String sunrise = null;

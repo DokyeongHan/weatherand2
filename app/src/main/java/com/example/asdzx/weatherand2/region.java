@@ -1,28 +1,19 @@
 package com.example.asdzx.weatherand2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.icu.util.Output;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.jar.Attributes;
 
 public class region extends AppCompatActivity {
     ArrayAdapter<CharSequence> dosi_Adapter;
@@ -580,7 +571,8 @@ public class region extends AppCompatActivity {
         });
 
         Button r_check = findViewById(R.id.region_check);
-        r_check.setOnClickListener(new View.OnClickListener() {
+
+       r_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (choice_do == "" || choice_se == "" || choice_dong == "" || choice_do == null || choice_se == null || choice_dong == null) {
@@ -598,5 +590,7 @@ public class region extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 }

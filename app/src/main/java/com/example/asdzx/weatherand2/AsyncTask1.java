@@ -21,6 +21,7 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     @Override
     protected Void doInBackground(Integer... integers) {
         //파싱
+
         try {
             parstring.miseparsing();
         } catch (XmlPullParserException e) {
@@ -65,15 +66,18 @@ public class AsyncTask1 extends AsyncTask<Integer, Integer, Void> {
     //현재 시간 가져오기 (api 변수에 사용합니다.)
     public static String doTime() {
         SimpleDateFormat formatter = new SimpleDateFormat("HH00", Locale.KOREA);
-        Date date = new Date();
-        String currentDate = formatter.format(date);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR_OF_DAY,-1);
+
+        String currentDate = formatter.format(calendar.getTime());
+
         return currentDate;
     }
 
     public static String doyes(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, -1);  // 오늘 날짜에서 하루를 뺌.
+        calendar.add(Calendar.DATE,-1);  // 오늘 날짜에서 하루를 뺌.
         String date = formatter.format(calendar.getTime());
         return date;
     }

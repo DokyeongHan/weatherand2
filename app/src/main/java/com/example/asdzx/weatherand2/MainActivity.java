@@ -2,35 +2,16 @@ package com.example.asdzx.weatherand2;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -126,6 +107,7 @@ public class MainActivity extends FragmentActivity {
         api.execute();
 
         //화면 새로고침시 지역글씨 바꿔줌
+        /*
          TextView r_text = findViewById(R.id.region_text);
         try {
             FileInputStream inFs = openFileInput("file.txt");
@@ -136,6 +118,6 @@ public class MainActivity extends FragmentActivity {
             inFs.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }

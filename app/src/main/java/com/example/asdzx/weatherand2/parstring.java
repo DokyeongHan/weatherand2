@@ -159,16 +159,18 @@ public class parstring {
         String nowtime = AsyncTask1.doTime();
         String today;
         String today_1;
-
+        String today_2;
         int a = Integer.parseInt(nowtime);
 
         if (a <= 0200) {
             today = AsyncTask1.doyes();
             today_1 = AsyncTask1.doYearMonthDay();
+            today_2 = AsyncTask1.today_1();
             nowtime = "0200";
         } else {
             today = AsyncTask1.doYearMonthDay();
             today_1 = AsyncTask1.today_1();
+            today_2 = AsyncTask1.today_2();
             nowtime = "0200";
         }
 
@@ -269,6 +271,36 @@ public class parstring {
                     }
                     if (s.equals("2100")) {
                         weather.SKY1_5 = ss;
+                    }
+                } else if (sss.equals(today_2)) {
+                    NodeList gugun = fstElmnt.getElementsByTagName("fcstValue");
+                    int cloud_num = Integer.parseInt(gugun.item(0).getChildNodes().item(0).getNodeValue());
+                    NodeList gugun1 = fstElmnt.getElementsByTagName("fcstTime");
+                    s = "" + gugun1.item(0).getChildNodes().item(0).getNodeValue() + "";
+
+                    if (cloud_num == 0 || cloud_num == 1 || cloud_num == 2) {
+                        ss = "맑음";
+                    } else if (cloud_num == 3 || cloud_num == 4 || cloud_num == 5) {
+                        ss = "구름 조금";
+                    } else if (cloud_num == 6 || cloud_num == 7 || cloud_num == 8) {
+                        ss = "구름 많음";
+                    } else if (cloud_num == 9 || cloud_num == 10) {
+                        ss = "흐림";
+                    }
+                    if (s.equals("0600")) {
+                        weather.SKY2_1 = ss;
+                    }
+                    if (s.equals("0900")) {
+                        weather.SKY2_2 = ss;
+                    }
+                    if (s.equals("1200")) {
+                        weather.SKY2_3 = ss;
+                    }
+                    if (s.equals("1800")) {
+                        weather.SKY2_4 = ss;
+                    }
+                    if (s.equals("2100")) {
+                        weather.SKY2_5 = ss;
                     }
                 }
 
@@ -476,33 +508,38 @@ public class parstring {
                     if (ss.equals("0900")) {
                         weather.T3H_2 = sss;
                     }
-                    if (ss.equals("1200")) {
+                    if (ss.equals("1500")) {
                         weather.T3H_3 = sss;
                     }
-                    if (ss.equals("1800")) {
-                        weather.T3H_4 = sss;
-                    }
                     if (ss.equals("2100")) {
-                        weather.T3H_5 = sss;
+                        weather.T3H_4 = sss;
                     }
                 } else if (s.equals(today_1)) {
                     NodeList gugun2 = fstElmnt.getElementsByTagName("fcstTime");
                     ss = "" + gugun2.item(0).getChildNodes().item(0).getNodeValue();
                     NodeList gugun = fstElmnt.getElementsByTagName("fcstValue");
                     sss = "" + gugun.item(0).getChildNodes().item(0).getNodeValue();
+                    if (ss.equals("0000")) {
+                        weather.T3H_5 = sss;
+                    }
                     if (ss.equals("0600")) {
                         weather.T_T3H_1 = sss;
                     }
                     if (ss.equals("0900")) {
                         weather.T_T3H_2 = sss;
                     }
-                    if (ss.equals("1200")) {
+                    if (ss.equals("1500")) {
                         weather.T_T3H_3 = sss;
                     }
-                    if (ss.equals("1800")) {
+                    if (ss.equals("2100")) {
                         weather.T_T3H_4 = sss;
                     }
-                    if (ss.equals("2100")) {
+                } else if (s.equals(today_2)) {
+                    NodeList gugun2 = fstElmnt.getElementsByTagName("fcstTime");
+                    ss = "" + gugun2.item(0).getChildNodes().item(0).getNodeValue();
+                    NodeList gugun = fstElmnt.getElementsByTagName("fcstValue");
+                    sss = "" + gugun.item(0).getChildNodes().item(0).getNodeValue();
+                    if (ss.equals("0000")) {
                         weather.T_T3H_5 = sss;
                     }
                 }
@@ -557,6 +594,7 @@ public class parstring {
 
         String s = "";
         String ss = "";
+        String sss = "";
         NodeList nodeList = doc.getElementsByTagName("item");
 
 
@@ -589,6 +627,71 @@ public class parstring {
                 if (ss.equals(today_2)) {
                     NodeList gugun3 = fstElmnt.getElementsByTagName("fcstValue");
                     weather.TMX2 = gugun3.item(0).getChildNodes().item(0).getNodeValue();
+                }
+            }
+
+            if (idx.item(0).getChildNodes().item(0).getNodeValue().equals("SKY")) {
+                NodeList gugun2 = fstElmnt.getElementsByTagName("fcstDate");
+                sss = gugun2.item(0).getChildNodes().item(0).getNodeValue() + "";
+
+                if (sss.equals(today_2)) {
+                    NodeList gugun = fstElmnt.getElementsByTagName("fcstValue");
+                    int cloud_num = Integer.parseInt(gugun.item(0).getChildNodes().item(0).getNodeValue());
+                    NodeList gugun1 = fstElmnt.getElementsByTagName("fcstTime");
+                    s = "" + gugun1.item(0).getChildNodes().item(0).getNodeValue() + "";
+
+                    if (cloud_num == 0 || cloud_num == 1 || cloud_num == 2) {
+                        ss = "맑음";
+                    } else if (cloud_num == 3 || cloud_num == 4 || cloud_num == 5) {
+                        ss = "구름 조금";
+                    } else if (cloud_num == 6 || cloud_num == 7 || cloud_num == 8) {
+                        ss = "구름 많음";
+                    } else if (cloud_num == 9 || cloud_num == 10) {
+                        ss = "흐림";
+                    }
+                    if (s.equals("0600")) {
+                        weather.SKY2_1 = ss;
+                    }
+                    if (s.equals("0900")) {
+                        weather.SKY2_2 = ss;
+                    }
+                    if (s.equals("1200")) {
+                        weather.SKY2_3 = ss;
+                    }
+                    if (s.equals("1800")) {
+                        weather.SKY2_4 = ss;
+                    }
+                    if (s.equals("2100")) {
+                        weather.SKY2_5 = ss;
+                    }
+                }
+
+            }
+
+            if (idx.item(0).getChildNodes().item(0).getNodeValue().equals("PTY")) {
+                NodeList gugun1 = fstElmnt.getElementsByTagName("fcstDate");
+                s = "" + gugun1.item(0).getChildNodes().item(0).getNodeValue();
+
+                if (s.equals(today_2)) {
+                    NodeList gugun2 = fstElmnt.getElementsByTagName("fcstTime");
+                    ss = "" + gugun2.item(0).getChildNodes().item(0).getNodeValue();
+                    NodeList gugun = fstElmnt.getElementsByTagName("fcstValue");
+                    sss = "" + gugun.item(0).getChildNodes().item(0).getNodeValue();
+                    if (ss.equals("0600")) {
+                        weather.F_PTY_1 = sss;
+                    }
+                    if (ss.equals("0900")) {
+                        weather.F_PTY_2 = sss;
+                    }
+                    if (ss.equals("1200")) {
+                        weather.F_PTY_3 = sss;
+                    }
+                    if (ss.equals("1800")) {
+                        weather.F_PTY_4 = sss;
+                    }
+                    if (ss.equals("2100")) {
+                        weather.F_PTY_5 = sss;
+                    }
                 }
             }
         }

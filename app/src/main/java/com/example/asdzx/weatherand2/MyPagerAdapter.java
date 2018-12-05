@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
-    private final int NUM_ITEMS = 5;
+    private final int NUM_ITEMS = 6;
 
     public MyPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -27,6 +27,8 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
             return LayoutFour.newInstance();
         else if (position == 4)
             return LayoutFive.newInstance();
+        else if (position == 5)
+            return LayoutSix.newInstance();
         return null;
     }
 }
