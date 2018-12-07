@@ -83,6 +83,10 @@ public class LayoutTwo extends Fragment {
     ImageView image66;
     ImageView image67;
     ImageView image68;
+    ImageView image69;
+    TextView text70;
+    TextView text71;
+    TextView text72;
 
     public static LayoutTwo newInstance() {
         LayoutTwo fragment = new LayoutTwo();
@@ -165,6 +169,10 @@ public class LayoutTwo extends Fragment {
         image66 = root.findViewById(R.id.sky15);
         image67 = root.findViewById(R.id.sky16);
         image68 = root.findViewById(R.id.sky17);
+        image69 = root.findViewById(R.id.toprain);
+        text70 = root.findViewById(R.id.prob);
+        text71 = root.findViewById(R.id.dust);
+        text72 = root.findViewById(R.id.chodust);
 
 
         APItask api = new APItask();
@@ -207,7 +215,17 @@ public class LayoutTwo extends Fragment {
             text1.setText(weather.WDF + " m/s");
             text2.setText(weather.REH + " %");
             text3.setText(tem);
-            text4.setText(weather.T3H_1 + " ℃");
+
+            if(Integer.parseInt(weather.T3H_1)<=Integer.parseInt(weather.T3H_5)){
+                text4.setText(weather.T3H_1 + " ℃");
+
+            }
+
+            if(Integer.parseInt(weather.T3H_1)>=Integer.parseInt(weather.T3H_5)){
+                text4.setText(weather.T3H_5 + " ℃");
+            }
+
+
             text5.setText(weather.T3H_3 + " ℃");
             text6.setText(sunrise);
             text7.setText(sunset);
@@ -246,9 +264,9 @@ public class LayoutTwo extends Fragment {
             text31.setText(getyoil(5));
             text32.setText(getyoil(6));
 
-            tmpID = getResources().getIdentifier(getweeksky(weather.SKY1_3,Integer.parseInt(weather.T_PTY_1),Integer.parseInt(weather.T_PTY_2),Integer.parseInt(weather.T_PTY_3),Integer.parseInt(weather.T_PTY_4),Integer.parseInt(weather.T_PTY_5)), "drawable", "com.example.asdzx.weatherand2");
+            tmpID = getResources().getIdentifier(getweeksky(weather.SKY1_3, Integer.parseInt(weather.T_PTY_1), Integer.parseInt(weather.T_PTY_2), Integer.parseInt(weather.T_PTY_3), Integer.parseInt(weather.T_PTY_4), Integer.parseInt(weather.T_PTY_5)), "drawable", "com.example.asdzx.weatherand2");
             image33.setImageResource(tmpID);
-            tmpID = getResources().getIdentifier(getweeksky(weather.SKY2_3,Integer.parseInt(weather.F_PTY_1),Integer.parseInt(weather.F_PTY_2),Integer.parseInt(weather.F_PTY_3),Integer.parseInt(weather.F_PTY_4),Integer.parseInt(weather.F_PTY_5)), "drawable", "com.example.asdzx.weatherand2");
+            tmpID = getResources().getIdentifier(getweeksky(weather.SKY2_3, Integer.parseInt(weather.F_PTY_1), Integer.parseInt(weather.F_PTY_2), Integer.parseInt(weather.F_PTY_3), Integer.parseInt(weather.F_PTY_4), Integer.parseInt(weather.F_PTY_5)), "drawable", "com.example.asdzx.weatherand2");
             image34.setImageResource(tmpID);
 
             tmpID = getResources().getIdentifier(getsky(weather.SKY3), "drawable", "com.example.asdzx.weatherand2");
@@ -303,6 +321,22 @@ public class LayoutTwo extends Fragment {
             image67.setImageResource(tmpID);
             tmpID = getResources().getIdentifier(getsky2(weather.SKY1_5, Integer.parseInt(weather.T_PTY_5)), "drawable", "com.example.asdzx.weatherand2");
             image68.setImageResource(tmpID);
+
+            tmpID = getResources().getIdentifier(getpty(Integer.parseInt(weather.PTY)), "drawable", "com.example.asdzx.weatherand2");
+            image69.setImageResource(tmpID);
+
+            if(Integer.parseInt(weather.PTY)==0) {
+                text70.setText("비 안옴");
+            }
+            if(Integer.parseInt(weather.PTY)==1 || Integer.parseInt(weather.PTY)==2) {
+                text70.setText("비 옴");
+            }
+            if(Integer.parseInt(weather.PTY)==3) {
+                text70.setText("눈 옴");
+            }
+
+            text71.setText(weather.pm10+" ㎛");
+            text72.setText(weather.pm25+" ㎛");
 
             super.onPostExecute(aVoid);
         }
@@ -394,11 +428,24 @@ public class LayoutTwo extends Fragment {
         if (c.contains("맑음")) {
             result = "sunny";
         }
-        if(c.contains("많음") || c.contains("흐림")){
+        if (c.contains("많음") || c.contains("흐림")) {
             result = "cloud";
         }
         if (c.contains("조금")) {
             result = "cloud2";
+        }
+
+        return result;
+    }
+
+    public static String getpty(int i) {
+        String result = "sunny";
+
+        if (i == 1 || i == 2) {
+            result = "rain";
+        }
+        if (i == 3) {
+            result = "snow";
         }
 
         return result;

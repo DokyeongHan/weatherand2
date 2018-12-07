@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 배경 -->
+    <item
+        android:drawable="@color/colorWhite"/>
+    <!-- 로고 -->
+    <item
+        android:height="200dp"
+        android:width="200dp"
+        android:gravity="center">
+        <bitmap
+            android:gravity="fill_horizontal|fill_vertical"
+            android:src="@drawable/nari"
+            />
+    </item>
+</layer-list>
