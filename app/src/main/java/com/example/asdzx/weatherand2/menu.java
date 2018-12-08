@@ -12,7 +12,7 @@ public class menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-        TextView zbtn = (TextView)findViewById(R.id.zi);
+        TextView zbtn = (TextView) findViewById(R.id.zi);
         zbtn.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {

@@ -1,17 +1,22 @@
 package com.example.asdzx.weatherand2;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import static com.example.asdzx.weatherand2.MainActivity.weather;
 
 public class LayoutFive extends Fragment {
     TextView text;
+    TextView jo;
+    TextView jo2;
+    ImageButton ad;
 
     public static LayoutFive newInstance() {
         LayoutFive fragment = new LayoutFive();
@@ -25,7 +30,19 @@ public class LayoutFive extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.layout_five, null);
         text = root.findViewById(R.id.result);
+        jo = root.findViewById(R.id.jo);
+        jo2 = root.findViewById(R.id.jo2);
+        ad = root.findViewById(R.id.ad);
 
+        ad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        getContext(), // 현재 화면의 제어권자
+                        adad.class); // 다음 넘어갈 클래스 지정
+                startActivity(intent); // 다음 화면으로 넘어간다
+            }
+        });
         APItask api = new APItask();
         api.execute();
 
@@ -124,12 +141,20 @@ public class LayoutFive extends Fragment {
 
             result -= skyre1 * 4;
 
-            if(result<0)
-                result =0;
+            if (result < 0)
+                result = 0;
 
             bbal = Integer.toString(result);
 
-            text.setText(bbal);
+            if (ptyre1 == 0) {
+                jo.setText("내일까지 비 안와요");
+            }
+
+            if (result >= 90) {
+                jo2.setText("빨래하기 좋은 날이에요");
+            }
+
+            text.setText(bbal + " 점");
             super.onPostExecute(aVoid);
         }
     }

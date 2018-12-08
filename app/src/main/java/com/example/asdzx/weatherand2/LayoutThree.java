@@ -1,17 +1,22 @@
 package com.example.asdzx.weatherand2;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import static com.example.asdzx.weatherand2.MainActivity.weather;
 
 public class LayoutThree extends Fragment {
     TextView text;
+    TextView jo;
+    TextView jo2;
+    ImageButton ad;
 
     public static LayoutThree newInstance() {
         LayoutThree fragment = new LayoutThree();
@@ -25,6 +30,19 @@ public class LayoutThree extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.layout_three, null);
         text = root.findViewById(R.id.result);
+        jo = root.findViewById(R.id.jo);
+        jo2 = root.findViewById(R.id.jo2);
+        ad = root.findViewById(R.id.ad);
+
+        ad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        getContext(), // 현재 화면의 제어권자
+                        adad.class); // 다음 넘어갈 클래스 지정
+                startActivity(intent); // 다음 화면으로 넘어간다
+            }
+        });
 
         APItask api = new APItask();
         api.execute();
@@ -67,15 +85,15 @@ public class LayoutThree extends Fragment {
             int pty14 = 0;
             int pty15 = 0;
 
-            if (ptys11.contains("비") || ptys11.contains("눈") || ptys11.contains("구름많음"))
+            if (ptys11.contains("비") || ptys11.contains("눈"))
                 pty11 = 1;
-            if (ptys12.contains("비") || ptys12.contains("눈") || ptys12.contains("구름많음"))
+            if (ptys12.contains("비") || ptys12.contains("눈"))
                 pty12 = 1;
-            if (ptys13.contains("비") || ptys13.contains("눈") || ptys13.contains("구름많음"))
+            if (ptys13.contains("비") || ptys13.contains("눈"))
                 pty13 = 1;
-            if (ptys14.contains("비") || ptys14.contains("눈") || ptys14.contains("구름많음"))
+            if (ptys14.contains("비") || ptys14.contains("눈"))
                 pty14 = 1;
-            if (ptys15.contains("비") || ptys15.contains("눈") || ptys15.contains("구름많음"))
+            if (ptys15.contains("비") || ptys15.contains("눈"))
                 pty15 = 1;
 
 
@@ -104,12 +122,31 @@ public class LayoutThree extends Fragment {
 
             result += 35 - ptyre2 * 7;
 
-            if (pty>0)
-                result =20;
+            if (pty > 0)
+                result = 20;
 
             secha = Integer.toString(result);
 
-            text.setText(secha);
+            if (result >= 94) {
+                jo.setText("세차하기 좋은 날이에요");
+                jo2.setText("일주일 간 비 안와요");
+            }
+            if (p10>50){
+                jo.setText("미세먼지 나쁨이에요");
+            }
+            if (ptyre2 >0){
+                jo.setText("일주일 내에 비와요");
+            }
+            if (ptyre1 > 0) {
+                jo.setText("내일 비가 올거에요");
+            }
+            if(pty >0) {
+                jo.setText("날씨가 안 좋아요");
+            }
+
+
+
+                text.setText(secha + " 점");
             super.onPostExecute(aVoid);
         }
     }

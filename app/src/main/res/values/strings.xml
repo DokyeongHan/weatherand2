@@ -347,7 +347,6 @@
     </string-array>
 
 
-
     <string-array name="spinner_umd_jongro">
         <item>선택해주세요</item>
         <item>가회동</item>
@@ -919,7 +918,6 @@
     </string-array>
 
 
-
     <string-array name="spinner_umd_bjunggu">
         <item>선택해주세요</item>
         <item>광복동1가</item>
@@ -1175,7 +1173,6 @@
     </string-array>
 
 
-
     <string-array name="spinner_umd_djunggu">
         <item>선택해주세요</item>
         <item>계산동1가</item>
@@ -1394,7 +1391,7 @@
         <item>장동</item>
         <item>죽전동</item>
     </string-array>
-    
+
     <string-array name="spinner_umd_ddalseonggun">
         <item>선택해주세요</item>
         <item>가창면</item>

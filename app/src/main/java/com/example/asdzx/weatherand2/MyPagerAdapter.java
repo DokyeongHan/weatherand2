@@ -19,15 +19,15 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0)
             return LayoutOne.newInstance();
-        else if (position == 1)
-            return LayoutTwo.newInstance();
-        else if (position == 2)
-            return LayoutThree.newInstance();
-        else if (position == 3)
-            return LayoutFour.newInstance();
-        else if (position == 4)
-            return LayoutFive.newInstance();
         else if (position == 5)
+            return LayoutTwo.newInstance();
+        else if (position == 1)
+            return LayoutThree.newInstance();
+        else if (position == 2)
+            return LayoutFour.newInstance();
+        else if (position == 3)
+            return LayoutFive.newInstance();
+        else if (position == 4)
             return LayoutSix.newInstance();
         return null;
     }

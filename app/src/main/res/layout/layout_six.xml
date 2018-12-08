@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#FFFFFF"
@@ -12,68 +13,97 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded"
+        android:background="@drawable/star"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="오늘은"
-                android:textColor="#000000"
-                android:textSize="20dp" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/ygotjalnanfont"
+                    android:text="별 관측"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4">
+
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/ygotjalnanfont"
+                    android:text="조회중"
+                    android:textColor="#FFFFFF"
+                    android:textSize="50dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="4">
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/nari" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
 
             <TextView
-                android:id="@+id/content"
-                android:layout_width="wrap_content"
+                android:id="@+id/jo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/result"
-                android:layout_centerInParent="true"
-                android:text="별 관측"
-                android:textColor="#000000"
-                android:textSize="50dp" />
-
-            <TextView
-                android:id="@+id/result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:text="조회중"
-                android:textColor="#000000"
-                android:textSize="20dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/ygotjalnanfont"
+                android:lineSpacingExtra="15dp"
+                android:text="오늘은 "
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/jo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/ygotjalnanfont"
+                android:lineSpacingExtra="15dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp" />
+
+            <ImageButton
+                android:id="@+id/ad"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/icon"
+                android:scaleType="fitCenter" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5">
-
-        </RelativeLayout>
 
     </LinearLayout>
 
