@@ -147,11 +147,17 @@ public class LayoutFive extends Fragment {
             bbal = Integer.toString(result);
 
             if (ptyre1 == 0) {
-                jo.setText("내일까지 비 안와요");
+                jo2.setText("내일까지 비 안와요");
+            } else {
+                jo2.setText("비가 올거에요");
             }
 
             if (result >= 90) {
-                jo2.setText("빨래하기 좋은 날이에요");
+                jo.setText("빨래하기 좋아요");
+            } else if(result <90 && result>=80){
+                jo.setText("급한 빨래만");
+            } else {
+                jo.setText("건조기가 필요해요");
             }
 
             text.setText(bbal + " 점");

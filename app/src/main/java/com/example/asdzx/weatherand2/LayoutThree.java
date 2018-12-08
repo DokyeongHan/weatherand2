@@ -128,7 +128,7 @@ public class LayoutThree extends Fragment {
             secha = Integer.toString(result);
 
             if (result >= 94) {
-                jo.setText("세차하기 좋은 날이에요");
+                jo.setText("세차하기 좋아요");
                 jo2.setText("일주일 간 비 안와요");
             }
             if (p10>50){

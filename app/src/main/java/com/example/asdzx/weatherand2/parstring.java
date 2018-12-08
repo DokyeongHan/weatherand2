@@ -162,11 +162,16 @@ public class parstring {
         String today_2;
         int a = Integer.parseInt(nowtime);
 
-        if (a <= 0200) {
+        if (a <= 200) {
             today = AsyncTask1.doyes();
             today_1 = AsyncTask1.doYearMonthDay();
             today_2 = AsyncTask1.today_1();
             nowtime = "0200";
+        } else if (a > 200 && a < 500) {
+            today = AsyncTask1.doyes();
+            today_1 = AsyncTask1.doYearMonthDay();
+            today_2 = AsyncTask1.today_1();
+            nowtime = "0500";
         } else {
             today = AsyncTask1.doYearMonthDay();
             today_1 = AsyncTask1.today_1();
@@ -561,6 +566,11 @@ public class parstring {
             today_1 = AsyncTask1.doYearMonthDay();
             today_2 = AsyncTask1.today_1();
             nowtime = "0500";
+        } else if (a > 500 && a < 600) {
+            today = AsyncTask1.doYearMonthDay();
+            today_1 = AsyncTask1.today_1();
+            today_2 = AsyncTask1.today_2();
+            nowtime = "0200";
         } else {
             today = AsyncTask1.doYearMonthDay();
             today_1 = AsyncTask1.today_1();
@@ -874,13 +884,13 @@ public class parstring {
         int a = Integer.parseInt(nowtime);
         String today = null;
 
-        if ((a >= 600) && (a <= 1800)) {
+        if ((a >= 700) && (a <= 1900)) {
             today = AsyncTask1.doYearMonthDay();
             nowtime = "0600";
-        } else if (a < 600) {
+        } else if (a < 700) {
             today = AsyncTask1.doyes();
             nowtime = "1800";
-        } else if (a > 1800) {
+        } else if (a > 1900) {
             today = AsyncTask1.doYearMonthDay();
             nowtime = "1800";
         }

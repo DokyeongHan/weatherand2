@@ -65,14 +65,14 @@ public class LayoutSix extends Fragment {
             aste1 = "" + weather.aste.substring(0, 2) + " : " + weather.aste.substring(2, 4);
 
             if (sky.contains("맑음")) {
-                result1 = "오늘밤은 하늘이 맑아요";
+                result1 = "밤 하늘이 맑아요";
                 jo2.setText("별 잘 보여요");
             }
             if (sky.contains("조금")) {
-                result1 = "오늘밤은 구름 조금";
+                result1 = "오늘 밤 구름 조금";
             }
             if (sky.contains("많음")) {
-                result1 = "오늘밤은 구름 많음";
+                result1 = "오늘 밤 구름 많음";
                 jo2.setText("별 잘 안보여요");
             }
 

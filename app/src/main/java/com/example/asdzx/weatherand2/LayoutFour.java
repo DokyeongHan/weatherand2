@@ -91,7 +91,7 @@ public class LayoutFour extends Fragment {
             if (result < 80) {
                 jo.setText("실내 운동 하세요");
             } else if (result >= 80) {
-                jo.setText("운동하기 좋은 날이에요");
+                jo.setText("운동하기 좋하요");
             }
 
             text.setText(undong + " 점");
