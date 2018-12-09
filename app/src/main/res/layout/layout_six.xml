@@ -35,7 +35,7 @@
                     android:fontFamily="@font/ygotjalnanfont"
                     android:text="별 관측"
                     android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
+                    android:textSize="25dp" />
 
             </RelativeLayout>
 
@@ -52,7 +52,7 @@
                     android:fontFamily="@font/ygotjalnanfont"
                     android:text="조회중"
                     android:textColor="#FFFFFF"
-                    android:textSize="50dp" />
+                    android:textSize="45dp" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -76,7 +76,7 @@
                 android:text="오늘은 "
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/jo2"
