@@ -83,15 +83,16 @@ public class LayoutFour extends Fragment {
 
             if (pty == 0)
                 result += 50;
-            else if (pty > 0)
+            else if (pty > 0) {
                 result -= 10;
-
+                jo2.setText("밖에 비와요");
+            }
             undong = Integer.toString(result);
 
             if (result < 80) {
                 jo.setText("실내 운동 하세요");
             } else if (result >= 80) {
-                jo.setText("운동하기 좋하요");
+                jo.setText("운동하기 좋아요");
             }
 
             text.setText(undong + " 점");

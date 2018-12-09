@@ -152,6 +152,9 @@ public class LayoutFive extends Fragment {
                 jo2.setText("비가 올거에요");
             }
 
+            if(skyre1 ==0){
+                jo2.setText("내일까지 하늘 맑음!");
+            }
             if (result >= 90) {
                 jo.setText("빨래하기 좋아요");
             } else if(result <90 && result>=80){

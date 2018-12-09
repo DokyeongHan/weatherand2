@@ -85,16 +85,26 @@ public class LayoutThree extends Fragment {
             int pty14 = 0;
             int pty15 = 0;
 
-            if (ptys11.contains("비") || ptys11.contains("눈"))
+            if (ptys15.contains("비") || ptys15.contains("눈")) {
                 pty11 = 1;
-            if (ptys12.contains("비") || ptys12.contains("눈"))
+                jo2.setText("7일 뒤 비와요");
+            }
+            if (ptys14.contains("비") || ptys14.contains("눈")) {
                 pty12 = 1;
-            if (ptys13.contains("비") || ptys13.contains("눈"))
+                jo2.setText("6일 뒤 비와요");
+            }
+            if (ptys13.contains("비") || ptys13.contains("눈")) {
                 pty13 = 1;
-            if (ptys14.contains("비") || ptys14.contains("눈"))
+                jo2.setText("5일 뒤 비와요");
+            }
+            if (ptys12.contains("비") || ptys12.contains("눈")) {
                 pty14 = 1;
-            if (ptys15.contains("비") || ptys15.contains("눈"))
+                jo2.setText("4일 뒤 비와요");
+            }
+            if (ptys11.contains("비") || ptys11.contains("눈")) {
                 pty15 = 1;
+                jo2.setText("3일 뒤 비와요");
+            }
 
 
             int ptyre1 = pty + pty1 + pty2 + pty3 + pty4 + pty5 + pty6 + pty7 + pty8 + pty9 + pty10;
@@ -131,22 +141,21 @@ public class LayoutThree extends Fragment {
                 jo.setText("세차하기 좋아요");
                 jo2.setText("일주일 간 비 안와요");
             }
-            if (p10>50){
+            if (p10 > 50) {
                 jo.setText("미세먼지 나쁨이에요");
             }
-            if (ptyre2 >0){
-                jo.setText("일주일 내에 비와요");
+            if (ptyre2 > 0) {
+                jo.setText("세차는 나중에");
             }
             if (ptyre1 > 0) {
                 jo.setText("내일 비가 올거에요");
             }
-            if(pty >0) {
+            if (pty > 0) {
                 jo.setText("날씨가 안 좋아요");
             }
 
 
-
-                text.setText(secha + " 점");
+            text.setText(secha + " 점");
             super.onPostExecute(aVoid);
         }
     }
